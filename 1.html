@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hacker Team</h1>
+  </header>
+
+  <div class="container">
+    <div class="hacker-terminal">
+      <p>Willkommen, Hacker! Deine Aufgabe ist es, die 4-stellige Zahl zu knacken:</p>
+      <div id="hackerCombination" class="number-combination"></div>
+      <div class="input-area">
+        <input type="text" id="hackerInput" maxlength="4" placeholder="4-stellige Zahl">
+        <button onclick="checkHackerInput()">Absenden</button>
+      </div>
+      <div id="hackerResult" class="result"></div>
+    </div>
+    <a href="index.html" class="button">Zurück zur Einführung</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let hackerCombination = generateCombination();
+    document.getElementById('hackerCombination').textContent = hackerCombination;
+
+    function checkHackerInput() {
+      const hackerInput = document.getElementById('hackerInput').value;
+      if (hackerInput === hackerCombination.toString()) {
+        document.getElementById('hackerResult').textContent = "Erfolgreich! Du hast die Zahl geknackt.";
+        document.getElementById('hackerResult').style.color = "green";
+      } else {
+        document.getElementById('hackerResult').textContent = "Falsch! Versuche es noch einmal.";
+        document.getElementById('hackerResult').style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
