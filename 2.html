@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spione Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Spione Team</h1>
+  </header>
+
+  <div class="container">
+    <div class="spione-dashboard">
+      <p>Willkommen, Spione! Deine Aufgabe ist es, Hinweise zu sammeln und die 4-stellige Zahl zu entschlüsseln:</p>
+      <div id="spioneCombination" class="number-combination"></div>
+      <div class="input-area">
+        <input type="text" id="spioneInput" maxlength="4" placeholder="4-stellige Zahl">
+        <button onclick="checkSpioneInput()">Absenden</button>
+      </div>
+      <div id="spioneResult" class="result"></div>
+    </div>
+    <a href="index.html" class="button">Zurück zur Einführung</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let spioneCombination = generateCombination();
+    document.getElementById('spioneCombination').textContent = spioneCombination;
+
+    function checkSpioneInput() {
+      const spioneInput = document.getElementById('spioneInput').value;
+      if (spioneInput === spioneCombination.toString()) {
+        document.getElementById('spioneResult').textContent = "Erfolgreich! Du hast die Zahl entschlüsselt.";
+        document.getElementById('spioneResult').style.color = "green";
+      } else {
+        document.getElementById('spioneResult').textContent = "Falsch! Versuch es weiter.";
+        document.getElementById('spioneResult').style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
